@@ -2,7 +2,7 @@ const { Colors } = require('discord.js');
 
 const config = {
 	ownerID: ['YourAccountID'],
-	token: 'YourBotToken',
+	token: process.env.token,
 	// For looking up Twitch, Fortnite, Steam accounts
 	api_keys: {
 		// https://genius.com/developers
@@ -21,15 +21,15 @@ const config = {
 		// Link to your support server
 		link: 'https://discord.gg/8g6zUQu',
 		// Your support's server ID
-		GuildID: '750822670505082971',
+		GuildID: '829649440167034901',
 		// This for using the suggestion command on your server
-		ModRole: '751857618720522341',
+		ModRole: '',
 		// What channel to post the suggestions
-		SuggestionChannel: '761619652009787392',
+		SuggestionChannel: '1189266383276605471',
 		// Where the bot will send Guild join/leave messages to
-		GuildChannel: '761619652009787392',
+		GuildChannel: '',
 		// Where rate limits will be sent to, for investigation
-		rateLimitChannelID: '761612724370931722',
+		rateLimitChannelID: '',
 	},
 	API: {
 		port: 3000,
@@ -45,7 +45,7 @@ const config = {
 		{ host: 'localhost', port: 5000, password: 'youshallnotpass' },
 	],
 	// URL to mongodb
-	MongoDBURl: 'mongodb://link',
+	MongoDBURl: process.env.mongodb,
 	// embed colour
 	embedColor: Colors.Default,
 	// This will spam your console if you enable this but will help with bug fixing
