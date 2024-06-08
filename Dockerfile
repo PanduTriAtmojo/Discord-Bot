@@ -12,4 +12,4 @@ RUN npm install && npm cache clean --force
 COPY . /usr/src/bot
 
 # Start me!
-CMD ["node", "src/index.js"]
+ENTRYPOINT ["usr/src/bot/entrypoint.sh"]
