@@ -1,7 +1,7 @@
 const { Colors } = require('discord.js');
 
 const config = {
-	ownerID: ['YourAccountID'],
+	ownerID: [process.env.ownerId],
 	token: process.env.token,
 	// For looking up Twitch, Fortnite, Steam accounts
 	api_keys: {
