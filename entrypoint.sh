@@ -7,4 +7,4 @@ java -jar /usr/src/bot/Lavalink/Lavalink.jar &
 sleep 20
 
 # Start Node.js application
-node index.js
+node src/index.js
