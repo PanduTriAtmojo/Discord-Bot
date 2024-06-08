@@ -7,9 +7,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Set working directory
-WORKDIR /usr/src/app
-
 # Copy and Install our bot
 COPY . .
 RUN npm install && npm cache clean --force
@@ -17,8 +14,8 @@ RUN npm install && npm cache clean --force
 ENV JAVA_TOOL_OPTIONS -Xmx1G
 
 # Copy entrypoint script
-COPY entrypoint.sh /usr/src/app/entrypoint.sh
-RUN chmod +x /usr/src/app/entrypoint.sh
+COPY entrypoint.sh ./entrypoint.sh
+RUN chmod +x entrypoint.sh
 
 # Start me!
-ENTRYPOINT ["usr/src/app/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
