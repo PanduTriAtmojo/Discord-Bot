@@ -42,7 +42,7 @@ const config = {
 		DeveloperRole: "740682780467396705",
 	},
 	LavalinkNodes: [
-		{ identifier: "Main", host: 'localhost', port: 5000, password: 'youshallnotpass', secure: "false" },
+		{ identifier: "Main", host: 'localhost', port: 5000, password: 'youshallnotpass', secure: false },
 	],
 	// URL to mongodb
 	MongoDBURl: process.env.mongodb,
