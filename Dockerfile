@@ -1,15 +1,24 @@
-FROM node:16.13.2
+# Menggunakan base image node dan bullseye
+FROM node:18-bullseye
 
-# Create the directory!
-RUN mkdir -p /usr/src/bot
-WORKDIR /usr/src/bot
+# Install dependencies untuk Lavalink dan tools untuk memeriksa port
+RUN apt-get update && \
+    apt-get install -y openjdk-17-jdk wget net-tools && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /usr/src/app
 
 # Copy and Install our bot
-COPY package.json ./
+COPY . .
 RUN npm install && npm cache clean --force
 
-# Our precious bot
-COPY . /usr/src/bot
+ENV JAVA_TOOL_OPTIONS -Xmx1G
+
+# Copy entrypoint script
+COPY entrypoint.sh /usr/src/app/entrypoint.sh
+RUN chmod +x /usr/src/app/entrypoint.sh
 
 # Start me!
-ENTRYPOINT ["usr/src/bot/entrypoint.sh"]
+ENTRYPOINT ["usr/src/app/entrypoint.sh"]
